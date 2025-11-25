@@ -207,10 +207,6 @@ impl<T> OnceCell<T> {
         }
 
         let optional_permit = self.semaphore.try_acquire(1);
-        println!(
-            "try_insert acquired permit: {:?}",
-            optional_permit.is_some()
-        );
         match self.get() {
             // double-checked: another task initialized the value
             Some(v) => Err((Some(v), value)),
