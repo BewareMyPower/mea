@@ -93,6 +93,9 @@
 //! remain with the caller. Await Asyncband futures inside any executor that polls standard Rust
 //! futures, and compose those runtime services around them.
 //!
+//! Executor waker operations, including cloning, waking, and dropping, are expected not to panic.
+//! Recovery from panicking waker operations is not part of the public API contract.
+//!
 //! # Async first, blocking by adaptation
 //!
 //! Async and synchronous primitives have different optimization constraints. Asyncband designs its
